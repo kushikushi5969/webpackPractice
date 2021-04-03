@@ -1,9 +1,14 @@
 module.exports = {
-  mode: 'production',
+  mode: 'development',
+  devtool: 'inline-source-map', // ソースマップ。デバッグの際に、/src/component/test.jsを参照
   entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'sample.js'
+  },
+  watch: true, // ファイル編集時に、都度でバンドルを自動で実行
+  watchOptions: {
+    ignored: /node_modules/ // 複数ある場合は、['files/**/*.js', 'node_modules']みたいに配列で指定できる
   }
 }
 // __dirnameについて
